@@ -1,6 +1,11 @@
 {% extends "layout.html" %}
 {% block content %}
-	<form action="/login" method="POST" class="w-400 mw-full">
+	<div class="d-flex justify-content-center">
+	<div class="card">
+	<div class="card-title">
+		Signup
+	</div>
+	<form action="/signup	" method="POST" class="w-400 mw-full">
 		<div class="form-group">
 			<label for="email" class="required">Email</label>
 			<input type="text" class="form-control" id="email" name="email" placeholder="Email" required="required">
@@ -22,4 +27,6 @@
 
 		<input type="submit" class="btn btn-primary" value="Submit">
 	</form>
+	</div>
+</div>
 {% endblock %}

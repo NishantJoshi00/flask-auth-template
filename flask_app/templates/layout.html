@@ -23,18 +23,9 @@
 
     <!-- Sticky alerts (toasts), empty container -->
     <!-- Reference: https://www.gethalfmoon.com/docs/sticky-alerts-toasts -->
-    <div class="sticky-alerts">
-		{% with messages = get_flashed_messages() %}
-			{% if messages %}	
-				{{ messages[0] }}
-			{% endif %}
-		{% endwith %}
-	</div>
+    <div class="sticky-alerts"></div>
 
     <!-- Navbar start -->
-    <nav class="navbar">
-      <!-- Reference: https://www.gethalfmoon.com/docs/navbar -->
-    </nav>
     <!-- Navbar end -->
 
     <!-- Content wrapper start -->
@@ -49,5 +40,27 @@
 
   <!-- Halfmoon JS -->
   <script src="https://cdn.jsdelivr.net/gh/halfmoonui/halfmoon@1.0.4/js/halfmoon.min.js"></script>
+  <script>
+    let msg = ""
+    
+    if (msg != "") {
+      halfmoon.initStickyAlert({
+        content: msg,
+        title: "Alert",
+		alertType: "alert-danger"
+      })
+    }
+  </script>
+  {% with messages = get_flashed_messages() %}
+			{% if messages %}	
+				<script>
+          halfmoon.initStickyAlert({
+            content: "{{ messages[0] }}",
+            title: "Alert",
+            alertType: "alert-danger"
+          })
+        </script>
+			{% endif %}
+    {% endwith %}
 </body>
 </html>

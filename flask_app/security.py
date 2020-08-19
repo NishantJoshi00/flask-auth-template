@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from flask import Blueprint, flash, redirect
+from flask import Blueprint, flash, redirect, render_template, request, url_for
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_user, logout_user, login_required
 from .models import User
@@ -19,6 +19,7 @@ def signup():
 	return render_template('signup.html');
 
 @security.route('/logout')
+@login_required
 def logout():
 	logout_user()
 	return redirect(url_for('content.index')) # "content" is a blueprint with index as a route-wrapped function
@@ -57,7 +58,7 @@ def login_post():
 
 	if not user or not check_password_hash(user.password, password):
 		flash("Please Check the your login details and try again.. ")
-		return redirect(url_for('auth.login'))
+		return redirect(url_for('security.login'))
 	
 	# Some other constraints from the database to filter login
 

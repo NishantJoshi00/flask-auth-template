@@ -27,6 +27,8 @@ def create_app() -> Flask:
 	from .security import security as sec_blueprint
 	app.register_blueprint(sec_blueprint)
 
+	from .content import content as con_blueprint
+	app.register_blueprint(con_blueprint)
 	# Insert All the others blueprint here for adding functionality to the website
 
 	return app
