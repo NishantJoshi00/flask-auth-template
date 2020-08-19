@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="d-flex justify-content-center">
+	<div class="card">
+		<div class="card-title">
+			Profile
+		</div>
+		<div class="card-content">
+			{{ user.username }}<br />
+			{{ user.email }}<br />
+			<a href="/logout" class="btn btn-success">Logout</a>
+		</div>
+	</div>
+</div>
+{% endblock %}
