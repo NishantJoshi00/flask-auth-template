@@ -8,7 +8,7 @@ This is functional to PoC, and should not be used in production
 
 ## Warning
 - The password is communicated from client-to-server in unencrypted manner, please implement SSL/TLS for improved security
-- The API calls do not have DoS protection, neither they have, any validation mechanism, please implement they before using them
+- The API calls do not have DoS protection, neither they have, any validation mechanism, please implement this before using them
 - There is in-code comment documentation for understanding the code, please read it carefully before using this template
 
 ## Try it out
